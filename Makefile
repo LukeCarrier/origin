@@ -7,7 +7,7 @@ TOP := $(CURDIR)
 # Test code against our style guidelines
 check:
 	-$(TOP)/vendor/bin/phpcs -ps --extensions=php --report-file=$(TOP)/phpcs.log \
-	                         --standard=$(TOP)/phpcs.xml $(TOP)/lib $(TOP)/test-lib/Origin/TestFramework
+	                         --standard=$(TOP)/phpcs.xml $(TOP)/bootstrap $(TOP)/lib $(TOP)/test-lib/Origin/TestFramework
 
 # Remove all automatically generated files
 clean: tidy
@@ -15,7 +15,7 @@ clean: tidy
 
 # Build the documentation from inline docblocks
 doc:
-	$(TOP)/vendor/bin/phpdoc.php
+	$(TOP)/bootstrap/doc.php
 
 # Execute the test suite and write coverage information
 test:
