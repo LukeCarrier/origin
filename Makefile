@@ -7,7 +7,7 @@ TOP := $(CURDIR)
 # Test code against our style guidelines
 check:
 	-$(TOP)/vendor/bin/phpcs -ps --extensions=php --report-file=$(TOP)/phpcs.log \
-	                         --standard=$(TOP)/phpcs.xml $(TOP)/lib
+	                         --standard=$(TOP)/phpcs.xml $(TOP)/lib $(TOP)/test-lib/Origin/TestFramework
 
 # Remove all automatically generated files
 clean: tidy
