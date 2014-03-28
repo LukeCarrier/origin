@@ -37,7 +37,9 @@ first stable release.
 Components
 ----------
 
-This section is to be populated as the framework is developed.
+| Component             | Description                                                                                  |
+| --------------------- | -------------------------------------------------------------------------------------------- |
+| ```Origin\Autoload``` | Class autoloader. Instances can manage multiple namespaces, with multiple source directories |
 
 Documentation
 -------------
