@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ruleset name="origin">
+    <description>Origin</description>
+
+    <rule ref="PEAR">
+        <!-- Unused tags -->
+        <exclude name="PEAR.Commenting.FileComment.MissingTag" />
+        <exclude name="PEAR.Commenting.FileComment.MissingVersion" />
+        <exclude name="PEAR.Commenting.ClassComment.MissingTag" />
+
+        <!-- When method chaining, indent lines such that the object operator of each line is aligned -->
+        <exclude name="PEAR.WhiteSpace.ObjectOperatorIndent.Incorrect" />
+
+        <!-- Multi-line method calls may wrap after parameters, and the first parameters may be on the same line as the
+          == opening parenthesis -->
+        <exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket" />
+
+        <!-- Multi-line assignments should be indented 8 spaces -->
+        <exclude name="PEAR.Formatting.MultiLineAssignment.Indent" />
+
+        <!-- When defining classes, keep the opening brace on the same line -->
+        <exclude name="PEAR.Classes.ClassDeclaration.OpenBraceNewLine" />
+
+        <!-- When defining functions and methods, indent wrapped parameters to the right of the opening parenthesis, and
+          == place the closing parenthesis on the end of the last line -->
+        <exclude name="PEAR.Functions.FunctionDeclaration.CloseBracketLine" />
+        <exclude name="PEAR.Functions.FunctionDeclaration.Indent" />
+
+        <!-- Opening braces for function declarations should be on the same line as the closing parenthesis for its
+          == prototype. -->
+        <exclude name="PEAR.Functions.FunctionDeclaration.BraceOnSameLine" />
+
+        <!-- Method/function call signatures spanning multiple lines should have operands indented up to the opening
+          == parenthesis of the first line. The closing parenthesis should be on the same line as the final operand. -->
+        <exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
+        <exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
+
+        <!-- We never use include to source required files: the semantics of these two statements are completely
+          == different -->
+        <exclude name="PEAR.Files.IncludingFile.UseInclude" />
+
+        <!-- We don't honour PEAR's indentation rules on case statements within switch constructs -->
+        <exclude name="PEAR.WhiteSpace.ScopeIndent.Incorrect" />
+    </rule>
+
+    <!-- Our line length limit is 120 characters, with an absolute maximum of 140 characters -->
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120" />
+            <property name="absoluteLineLimit" value="140" />
+        </properties>
+    </rule>
+
+    <!-- We use 4 spaces for indentation -->
+    <rule ref="Generic.WhiteSpace.ScopeIndent">
+        <properties>
+            <property name="indent" value="4" />
+        </properties>
+    </rule>
+</ruleset>

@@ -1,0 +1,14 @@
+# Composer-managed dependencies
+/composer.lock
+/vendor
+
+# phpDocumentor 2 build artefacts
+/doc
+/phpdoc-*
+
+# PHP_CodeSniffer logs
+/phpcs.log
+
+# PHPUnit tests
+/phpunit-coverage
+
