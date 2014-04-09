@@ -40,6 +40,7 @@ Components
 | Component             | Description                                                                                  |
 | --------------------- | -------------------------------------------------------------------------------------------- |
 | ```Origin\Autoload``` | Class autoloader. Instances can manage multiple namespaces, with multiple source directories |
+| ```Origin\Cache```    | Disk cache library                                                                           |
 
 Documentation
 -------------
