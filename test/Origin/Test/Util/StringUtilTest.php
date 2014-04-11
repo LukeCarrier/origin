@@ -17,15 +17,27 @@ use Origin\TestFramework\GenericTestCase,
 
 class StringUtilTest extends GenericTestCase {
     protected $haystack;
+    protected $haystack_format;
+
+    protected $haystack_parameters;
 
     public function setUp() {
         parent::setUp();
 
-        $this->haystack = 'I like trains.';
+        $this->haystack        = 'I like trains.';
+        $this->haystack_format = 'I {opinion} {object}s.';
+
+        $this->format_parameters = [
+            'opinion' => 'like',
+            'object'  => 'train',
+        ];
     }
 
     public function tearDown() {
+        unset($this->haystack_format);
         unset($this->haystack);
+
+        unset($this->format_parameters);
 
         parent::tearDown();
     }
@@ -38,6 +50,10 @@ class StringUtilTest extends GenericTestCase {
     public function testEndsWith() {
         $this->assertTrue(StringUtil::endsWith($this->haystack, 'trains.'));
         $this->assertFalse(StringUtil::endsWith($this->haystack, 'like'));
+    }
+
+    public function testFormat() {
+        $this->assertEquals($this->haystack, StringUtil::format($this->haystack_format, $this->format_parameters));
     }
 
     public function testStartsWith() {

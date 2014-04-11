@@ -43,6 +43,25 @@ class StringUtil {
     }
 
     /**
+     * Substitute parameters into the supplied format string.
+     *
+     * Iterates over the key => value pairs in the supplied parameter array, seeking curly brace-enclosed occurences of
+     * each key, replacing them with the corresponding value.
+     *
+     * @param string   $string     The format string.
+     * @param string[] $parameters A string-indexed array of parameters to substitute into the format string.
+     *
+     * @return string The formatted string.
+     */
+    public static function format($string, $parameters) {
+        $search = array_map(function ($key) {
+            return '{' . $key . '}';
+        }, array_keys($parameters));
+
+        return str_replace($search, array_values($parameters), $string);
+    }
+
+    /**
      * Does the specified string start with the specified needle?
      *
      * @param string $haystack The string to search within.
