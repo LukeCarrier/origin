@@ -41,6 +41,7 @@ Components
 | --------------------- | -------------------------------------------------------------------------------------------- |
 | ```Origin\Autoload``` | Class autoloader. Instances can manage multiple namespaces, with multiple source directories |
 | ```Origin\Cache```    | Disk cache library                                                                           |
+| ```Origin\Logging```  | General purpose, extensible application logging library                                      |
 
 Documentation
 -------------
