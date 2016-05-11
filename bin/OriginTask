@@ -1,0 +1,43 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * Task host.
+ *
+ * Origin.
+ *
+ * @author Luke Carrier <luke@carrier.im>
+ * @copyright (c) 2013 CloudFlux
+ * @license Proprietary; all rights reserved
+ */
+
+$register_args = strtolower(ini_get('register_argc_argv'));
+if (!in_array($register_args, array('on', 'true', 'yes'))
+        && !(bool) $register_args) {
+    echo "{$argv[0]}: your environment doesn't populate the argument variables; enable register_argc_argv\n";
+    exit(1);
+}
+
+if (!$environment = @include realpath(getcwd()) . '/tasks.php') {
+    echo "{$argv[0]}: could not find tasks.php in current working directory\n";
+    exit(2);
+}
+
+use Origin\Console\Task\TaskHost;
+
+$task_host = new TaskHost($argv);
+
+if (array_key_exists('arguments', $environment)
+        && is_array($environment['arguments'])) {
+    foreach ($environment['arguments'] as $name => $argument) {
+        $argument['long'] = $name;
+        $task_host->addGlobalArgument($argument);
+    }
+}
+
+foreach ($environment['tasks'] as $name => &$task) {
+    $task['name'] = $name;
+    $task_host->addTask($task);
+}
+
+$task_host->runTask();
